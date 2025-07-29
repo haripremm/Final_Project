@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FashionCart | Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>FashionCart</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Cart</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="product-grid">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/200x250?text=Summer+Dress" alt="Summer Dress">
+      <h3>Summer Dress</h3>
+      <p>$39.99</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/200x250?text=Men's+T-shirt" alt="Men's T-shirt">
+      <h3>Men's T-shirt</h3>
+      <p>$19.99</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/200x250?text=Bluetooth+Speaker" alt="Speaker">
+      <h3>Bluetooth Speaker</h3>
+      <p>$79.99</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/200x250?text=Casual+Shirt" alt="Shirt">
+      <h3>Casual Shirt</h3>
+      <p>$25.00</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/200x250?text=Smart+Watch" alt="Smart Watch">
+      <h3>Smart Watch</h3>
+      <p>$149.99</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/200x250?text=Evening+Gown" alt="Evening Gown">
+      <h3>Evening Gown</h3>
+      <p>$89.99</p>
+      <button>Add to Cart</button>
+    </div>
+  </section>
+</body>
+</html>

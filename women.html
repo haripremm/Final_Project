@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Women's Clothing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .product-card {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card h3 {
+      margin: 0.5rem 0;
+    }
+
+    .product-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .product-card form {
+      margin-top: 0.5rem;
+    }
+
+    .product-card button {
+      background-color: #ff6600;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 50%;
+      margin-top: 0.3rem;
+    }
+
+    .product-card button:hover {
+      background-color: #e65c00;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .back-link {
+        font-size: 1rem;
+      }
+
+      .product-card img {
+        height: 160px;
+      }
+
+      .product-card button {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Women's Clothing Products</h1>
+  <a href="{{ url_for('home') }}" class="back-link">⬅️ Back to Home</a>
+
+  <section class="product-grid">
+
+    <!-- Product 1: Saree -->
+    <div class="product-card">
+      <img src="https://t4.ftcdn.net/jpg/06/53/22/59/360_F_653225962_K90KnjANu6tBzZpV0sIkezcIELnn4dMQ.webp" alt="Saree">
+      <h3>Saree</h3>
+      <p>Rs. 400</p>
+      <form action="{{ url_for('add_to_cart') }}" method="POST">
+        <input type="hidden" name="action" value="add">
+        <input type="hidden" name="product_name" value="Saree">
+        <input type="hidden" name="price" value="400">
+        <input type="hidden" name="image_url" value="https://t4.ftcdn.net/jpg/06/53/22/59/360_F_653225962_K90KnjANu6tBzZpV0sIkezcIELnn4dMQ.webp">
+        <button type="submit">Add to Cart</button>
+      </form>
+      <form action="{{ url_for('buy') }}" method="POST">
+        <input type="hidden" name="product_name" value="Saree">
+        <input type="hidden" name="price" value="400">
+        <input type="hidden" name="image_url" value="https://t4.ftcdn.net/jpg/06/53/22/59/360_F_653225962_K90KnjANu6tBzZpV0sIkezcIELnn4dMQ.webp">
+        <button type="submit">Buy</button>
+      </form>
+    </div>
+
+    <!-- Product 2: Chudidhar -->
+    <div class="product-card">
+      <img src="https://www.shutterstock.com/image-photo/folded-green-block-print-salwar-600nw-2580404945.jpg" alt="Chudidhar">
+      <h3>Chudidhar</h3>
+      <p>Rs. 500</p>
+      <form action="{{ url_for('add_to_cart') }}" method="POST">
+        <input type="hidden" name="action" value="add">
+        <input type="hidden" name="product_name" value="Chudidhar">
+        <input type="hidden" name="price" value="500">
+        <input type="hidden" name="image_url" value="https://www.shutterstock.com/image-photo/folded-green-block-print-salwar-600nw-2580404945.jpg">
+        <button type="submit">Add to Cart</button>
+      </form>
+      <form action="{{ url_for('buy') }}" method="POST">
+        <input type="hidden" name="product_name" value="Chudidhar">
+        <input type="hidden" name="price" value="500">
+        <input type="hidden" name="image_url" value="https://www.shutterstock.com/image-photo/folded-green-block-print-salwar-600nw-2580404945.jpg">
+        <button type="submit">Buy</button>
+      </form>
+    </div>
+
+    <!-- Product 3: Salwar -->
+    <div class="product-card">
+      <img src="https://media.istockphoto.com/id/1911598558/photo/indian-woman-wear-embroidered-salwar-kameez-in-shop-display.jpg?s=612x612&w=0&k=20&c=4jfqSx09Y9dfGBcsrPHWAfqlgeySvzAJVK7IuIF_Pe4=" alt="Salwar">
+      <h3>Salwar</h3>
+      <p>Rs. 900</p>
+      <form action="{{ url_for('add_to_cart') }}" method="POST">
+        <input type="hidden" name="action" value="add">
+        <input type="hidden" name="product_name" value="Salwar">
+        <input type="hidden" name="price" value="900">
+        <input type="hidden" name="image_url" value="https://media.istockphoto.com/id/1911598558/photo/indian-woman-wear-embroidered-salwar-kameez-in-shop-display.jpg?s=612x612&w=0&k=20&c=4jfqSx09Y9dfGBcsrPHWAfqlgeySvzAJVK7IuIF_Pe4=">
+        <button type="submit">Add to Cart</button>
+      </form>
+      <form action="{{ url_for('buy') }}" method="POST">
+        <input type="hidden" name="product_name" value="Salwar">
+        <input type="hidden" name="price" value="900">
+        <input type="hidden" name="image_url" value="https://media.istockphoto.com/id/1911598558/photo/indian-woman-wear-embroidered-salwar-kameez-in-shop-display.jpg?s=612x612&w=0&k=20&c=4jfqSx09Y9dfGBcsrPHWAfqlgeySvzAJVK7IuIF_Pe4=">
+        <button type="submit">Buy</button>
+      </form>
+    </div>
+
+    <!-- Product 4: Kurthi -->
+    <div class="product-card">
+      <img src="https://t4.ftcdn.net/jpg/11/66/81/55/240_F_1166815570_5xHtmCzHpid4pKEWwSP7Vh8qtuAApLfq.jpg" alt="Kurthi">
+      <h3>Kurthi</h3>
+      <p>Rs. 800</p>
+      <form action="{{ url_for('add_to_cart') }}" method="POST">
+        <input type="hidden" name="action" value="add">
+        <input type="hidden" name="product_name" value="Kurthi">
+        <input type="hidden" name="price" value="800">
+        <input type="hidden" name="image_url" value="https://t4.ftcdn.net/jpg/11/66/81/55/240_F_1166815570_5xHtmCzHpid4pKEWwSP7Vh8qtuAApLfq.jpg">
+        <button type="submit">Add to Cart</button>
+      </form>
+      <form action="{{ url_for('buy') }}" method="POST">
+        <input type="hidden" name="product_name" value="Kurthi">
+        <input type="hidden" name="price" value="800">
+        <input type="hidden" name="image_url" value="https://t4.ftcdn.net/jpg/11/66/81/55/240_F_1166815570_5xHtmCzHpid4pKEWwSP7Vh8qtuAApLfq.jpg">
+        <button type="submit">Buy</button>
+      </form>
+    </div>
+
+  </section>
+
+</body>
+</html>

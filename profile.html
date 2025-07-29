@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Profile</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e0600b;
+            padding: 2rem;
+            text-align: left;
+        }
+
+        .profile-card {
+            background: white;
+            display: inline-block;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            width: 80%;
+        }
+
+        .profile-card h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section {
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .section h3 {
+            color: #333;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.5rem;
+        }
+
+        .product-item {
+            background: #fafafa;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .back {
+            margin-top: 2rem;
+            display: inline-block;
+        }
+    </style>
+    
+</head>
+<body>
+
+<div class="profile-card">
+    <h2>{{ user.username }}'s Profile</h2>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Gender:</strong> {{ user.gender }}</p>
+    <p><strong>City:</strong> {{ user.city }}</p>
+
+    <div class="section">
+        <h3>🛒 Cart History</h3>
+        {% if user.cart and user.cart|length > 0 %}
+            {% for item in user.cart %}
+                <div class="product-item">
+                    <strong>{{ item.product_name }}</strong> - ₹{{ item.price }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No items in cart.</p>
+        {% endif %}
+    </div>
+
+    <div class="section">
+        <h3>💳 Purchase History</h3>
+        {% if user.buy and user.buy|length > 0 %}
+            {% for item in user.buy %}
+                <div class="product-item">
+                    <strong>{{ item.product_name }}</strong> - ₹{{ item.price }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No purchases made yet.</p>
+        {% endif %}
+    </div>
+</div>
+
+<!--<a href="{{ url_for('home') }}" class="back">⬅ Back to Home</a> -->
+
+</body>
+</html>

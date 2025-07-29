@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FashionCart | Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ee840b;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .auth-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .auth-buttons a {
+      background-color: #ff6600;
+      padding: 0.5rem 1rem;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .auth-buttons a:hover {
+      background-color: #e65c00;
+    }
+
+    .product-grid {
+      display: grid;
+    
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .product-card {
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.02);
+    }
+
+    .product-card img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card h3 {
+      margin: 0.5rem 0;
+    }
+
+    .product-card p {
+      color: #555;
+    }
+
+    .product-card button {
+      background-color: #ff6600;
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      margin-top: 0.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 50%;
+    }
+
+    .product-card button:hover {
+      background-color: #e65c00;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav, .auth-buttons {
+        margin-top: 0.5rem;
+      }
+
+      .product-card img {
+        max-height: 180px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-card img {
+        max-height: 150px;
+      }
+
+      .auth-buttons a, nav a {
+        font-size: 14px;
+        padding: 0.4rem 0.8rem;
+      }
+
+      .product-card button {
+        padding: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  {% if username %}
+    <p style="color:rgb(12, 0, 0); margin: 1rem;">Welcome, {{ username }}</p>
+  {% endif %}
+
+  <!-- Header -->
+  <header>
+    <h1>FashionCart</h1>
+    <nav>
+      <a href="#">Products</a>
+      <a href="{{ url_for('cart') }}">Cart</a>
+      <a href="{{ url_for('profile') }}">Profile</a>
+    </nav>
+    <div class="auth-buttons">
+      {% if username %}
+        <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+      {% else %}
+        <a href="{{ url_for('login') }}"><button>Login</button></a>
+        <a href="{{ url_for('register') }}"><button>Sign Up</button></a>
+      {% endif %}
+    </div>
+  </header>
+
+  <!-- Product Grid -->
+  <section class="product-grid">
+
+    <div class="product-card">
+      <img src="static/images/men clothing.jpg" alt="Men Clothing">
+      <h3>Men Clothing</h3>
+      <p>Explore men's fashion</p>
+      {% if username %}
+        <a href="{{ url_for('men_clothing') }}"><button>Shop Now</button></a>
+      {% else %}
+        <button onclick="alert('Please log in to access this category.')">Shop Now</button>
+      {% endif %}
+    </div>
+
+    <div class="product-card">
+      <img src="https://www.shutterstock.com/image-photo/seoul-south-korea-circa-may-260nw-678546556.jpg" alt="Women Clothing">
+      <h3>Women Clothing</h3>
+      <p>Stylish outfits for women</p>
+      <a href="{{ url_for('women_clothing') }}"><button>Shop Now</button></a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://img.freepik.com/free-photo/studio-set-diverse-kids_53876-137701.jpg?semt=ais_hybrid&w=740" alt="Kids Wear">
+      <h3>Kids Wear</h3>
+      <p>Trendy clothes for kids</p>
+      <a href="{{ url_for('kids_wear') }}"><button>Shop Now</button></a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTx49Pyikis_jmvh05ysu0iaK1sbnDRUkZgLXTEu-lU4UpJMhmlxVMKkIs0b2ixjWyE6fAN8thFFIaNRha-ffadP-K2uEK-MlqBi810RNU" alt="Textiles">
+      <h3>Textiles</h3>
+      <p>Shop our textile collection</p>
+      <a href="{{ url_for('textiles') }}"><button>Shop Now</button></a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://img.freepik.com/premium-photo/3d-variety-home-appliances-concept-design_751108-12599.jpg?semt=ais_hybrid&w=740" alt="Home Appliances">
+      <h3>Home Appliances</h3>
+      <p>Essential items for home</p>
+      <a href="{{ url_for('Home_applience') }}"><button>Shop Now</button></a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://www.shutterstock.com/image-photo/different-modern-devices-on-color-260nw-1875797689.jpg" alt="Gadgets">
+      <h3>Gadgets</h3>
+      <p>Smart gadgets & electronics</p>
+      <a href="{{ url_for('gadgets') }}"><button>Shop Now</button></a>
+    </div>
+
+  </section>
+
+</body>
+</html>

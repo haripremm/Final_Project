@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register | FashionCart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #f39c12, #d35400);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .signup-container {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      width: 400px;
+    }
+
+    .signup-container h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .signup-container input[type="text"],
+    .signup-container input[type="email"],
+    .signup-container input[type="password"],
+    .signup-container select {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.6rem 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .signup-container label {
+      font-weight: bold;
+      margin-top: 0.5rem;
+      display: block;
+    }
+
+    .signup-container button {
+      width: 100%;
+      padding: 0.7rem;
+      background-color: #e67e22;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .signup-container button:hover {
+      background-color: #d35400;
+    }
+
+    .signup-container p {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .signup-container a {
+      color: #e67e22;
+      text-decoration: none;
+    }
+
+    .signup-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signup-container">
+    <h2>Create Account</h2>
+    <form method="POST" action="{{ url_for('register') }}">
+      <label>Username</label>
+      <input type="text" name="username" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Password</label>
+      <input type="password" name="password" required>
+
+      <label>Confirm Password</label>
+      <input type="password" name="confirm_password" required>
+
+      <label>Gender</label>
+      <select name="gender" required>
+        <option value="">--Select--</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label>City</label>
+      <input type="text" name="city" required>
+
+      <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="/login">Login</a></p>
+  </div>
+
+</body>
+</html>

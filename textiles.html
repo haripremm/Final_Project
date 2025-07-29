@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Textile Products</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product-card {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card h3 {
+      margin: 0.5rem 0;
+    }
+
+    .product-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .product-card form {
+      margin-top: 0.5rem;
+    }
+
+    .product-card button {
+      background-color: #ff6600;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 50%;
+      margin-top: 0.3rem;
+    }
+
+    .product-card button:hover {
+      background-color: #e65c00;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .back-link {
+        font-size: 1rem;
+      }
+
+      .product-card img {
+        height: 160px;
+      }
+
+      .product-card button {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Textile Products</h1>
+  <a href="{{ url_for('home') }}" class="back-link">⬅️ Back to Home</a>
+
+  <section class="product-grid">
+
+    <!-- Product 1 -->
+    <div class="product-card">
+      <img src="https://i.pinimg.com/736x/0a/5c/37/0a5c3722f93b9e38a77b38a845826cbc.jpg" alt="Sarees">
+      <h3>Sarees</h3>
+      <p>Rs. 900</p>
+      <form action="{{ url_for('add_to_cart') }}" method="POST">
+        <input type="hidden" name="product_name" value="Sarees">
+        <input type="hidden" name="price" value="900">
+        <input type="hidden" name="image_url" value="https://i.pinimg.com/736x/0a/5c/37/0a5c3722f93b9e38a77b38a845826cbc.jpg">
+        <button type="submit">Add to Cart</button>
+      </form>
+      <form action="{{ url_for('buy') }}" method="POST">
+        <input type="hidden" name="product_name" value="Sarees">
+        <input type="hidden" name="price" value="900">
+        <input type="hidden" name="image_url" value="https://i.pinimg.com/736x/0a/5c/37/0a5c3722f93b9e38a77b38a845826cbc.jpg">
+        <button type="submit">Buy</button>
+      </form>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <img src="https://5.imimg.com/data5/YG/HU/LH/SELLER-40124599/men-khadi-grey-shirt-500x500.jpg" alt="Kadhar Shirts">
+      <h3>Kadhar Shirts</h3>
+      <p>Rs. 1500</p>
+      <form action="{{ url_for('add_to_cart') }}" method="POST">
+        <input type="hidden" name="product_name" value="Kadhar Shirts">
+        <input type="hidden" name="price" value="1500">
+        <input type="hidden" name="image_url" value="https://5.imimg.com/data5/YG/HU/LH/SELLER-40124599/men-khadi-grey-shirt-500x500.jpg">
+        <button type="submit">Add to Cart</button>
+      </form>
+      <form action="{{ url_for('buy') }}" method="POST">
+        <input type="hidden" name="product_name" value="Kadhar Shirts">
+        <input type="hidden" name="price" value="1500">
+        <input type="hidden" name="image_url" value="https://5.imimg.com/data5/YG/HU/LH/SELLER-40124599/men-khadi-grey-shirt-500x500.jpg">
+        <button type="submit">Buy</button>
+      </form>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <img src="https://png.pngtree.com/png-vector/20240822/ourmid/pngtree-stack-of-folded-striped-dress-shirts-isolated-on-black-background-png-image_13591037.png" alt="Cotton Dress">
+      <h3>Cotton Dress</h3>
+      <p>Rs. 900</p>
+      <form action="{{ url_for('add_to_cart') }}" method="POST">
+        <input type="hidden" name="product_name" value="Cotton Dress">
+        <input type="hidden" name="price" value="900">
+        <input type="hidden" name="image_url" value="https://png.pngtree.com/png-vector/20240822/ourmid/pngtree-stack-of-folded-striped-dress-shirts-isolated-on-black-background-png-image_13591037.png">
+        <button type="submit">Add to Cart</button>
+      </form>
+      <form action="{{ url_for('buy') }}" method="POST">
+        <input type="hidden" name="product_name" value="Cotton Dress">
+        <input type="hidden" name="price" value="900">
+        <input type="hidden" name="image_url" value="https://png.pngtree.com/png-vector/20240822/ourmid/pngtree-stack-of-folded-striped-dress-shirts-isolated-on-black-background-png-image_13591037.png">
+        <button type="submit">Buy</button>
+      </form>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card">
+      <img src="https://img.freepik.com/premium-photo/men-s-classic-clothing-isolated-shirt-with-tie-shawl-vest-belt-shoes_142957-1100.jpg" alt="Raw Materials">
+      <h3>Raw Materials</h3>
+      <p>Rs. 800</p>
+      <form action="{{ url_for('add_to_cart') }}" method="POST">
+        <input type="hidden" name="product_name" value="Raw Materials">
+        <input type="hidden" name="price" value="800">
+        <input type="hidden" name="image_url" value="https://img.freepik.com/premium-photo/men-s-classic-clothing-isolated-shirt-with-tie-shawl-vest-belt-shoes_142957-1100.jpg">
+        <button type="submit">Add to Cart</button>
+      </form>
+      <form action="{{ url_for('buy') }}" method="POST">
+        <input type="hidden" name="product_name" value="Raw Materials">
+        <input type="hidden" name="price" value="800">
+        <input type="hidden" name="image_url" value="https://img.freepik.com/premium-photo/men-s-classic-clothing-isolated-shirt-with-tie-shawl-vest-belt-shoes_142957-1100.jpg">
+        <button type="submit">Buy</button>
+      </form>
+    </div>
+
+  </section>
+
+</body>
+</html>

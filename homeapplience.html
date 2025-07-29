@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home Appliances</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product-card {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card h3 {
+      margin: 0.5rem 0;
+    }
+
+    .product-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .product-card form {
+      margin-top: 0.5rem;
+    }
+
+    .product-card button {
+      background-color: #ff6600;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 50%;
+      margin-top: 0.3rem;
+    }
+
+    .product-card button:hover {
+      background-color: #e65c00;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .back-link {
+        font-size: 1rem;
+      }
+
+      .product-card img {
+        height: 160px;
+      }
+
+      .product-card button {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Home Appliance Products</h1>
+  <a href="{{ url_for('home') }}" class="back-link">⬅️ Back to Home</a>
+
+  <section class="product-grid">
+
+    <!-- Product 1 -->
+    <div class="product-card">
+      <img src="https://pngimg.com/d/washing_machine_PNG15578.png" alt="Washing Machine">
+      <h3>Washing Machine</h3>
+      <p>Rs. 20000</p>
+      <form action="{{ url_for('add_to_cart') }}" method="POST">
+        <input type="hidden" name="product_name" value="Washing Machine">
+        <input type="hidden" name="price" value="20000">
+        <input type="hidden" name="image_url" value="https://pngimg.com/d/washing_machine_PNG15578.png">
+        <button type="submit">Add to Cart</button>
+      </form>
+      <form action="{{ url_for('buy') }}" method="POST">
+        <input type="hidden" name="product_name" value="Washing Machine">
+        <input type="hidden" name="price" value="20000">
+        <input type="hidden" name="image_url" value="https://pngimg.com/d/washing_machine_PNG15578.png">
+        <button type="submit">Buy</button>
+      </form>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <img src="https://w7.pngwing.com/pngs/850/974/png-transparent-red-and-black-mirthaa-lion-wet-grinder-table-grinding-machine-wet-grinder-bench-grinder-table-top-wet-grinder-kitchen-electronics-small-appliance-thumbnail.png" alt="Grinder">
+      <h3>Grinder</h3>
+      <p>Rs. 15000</p>
+      <form action="{{ url_for('add_to_cart') }}" method="POST">
+        <input type="hidden" name="product_name" value="Grinder">
+        <input type="hidden" name="price" value="15000">
+        <input type="hidden" name="image_url" value="https://w7.pngwing.com/pngs/850/974/png-transparent-red-and-black-mirthaa-lion-wet-grinder-table-grinding-machine-wet-grinder-bench-grinder-table-top-wet-grinder-kitchen-electronics-small-appliance-thumbnail.png">
+        <button type="submit">Add to Cart</button>
+      </form>
+      <form action="{{ url_for('buy') }}" method="POST">
+        <input type="hidden" name="product_name" value="Grinder">
+        <input type="hidden" name="price" value="15000">
+        <input type="hidden" name="image_url" value="https://w7.pngwing.com/pngs/850/974/png-transparent-red-and-black-mirthaa-lion-wet-grinder-table-grinding-machine-wet-grinder-bench-grinder-table-top-wet-grinder-kitchen-electronics-small-appliance-thumbnail.png">
+        <button type="submit">Buy</button>
+      </form>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/038/015/873/small/ai-generated-refrigerator-isolated-on-transparent-background-free-png.png" alt="Fridge">
+      <h3>Fridge</h3>
+      <p>Rs. 18000</p>
+      <form action="{{ url_for('add_to_cart') }}" method="POST">
+        <input type="hidden" name="product_name" value="Fridge">
+        <input type="hidden" name="price" value="18000">
+        <input type="hidden" name="image_url" value="https://static.vecteezy.com/system/resources/thumbnails/038/015/873/small/ai-generated-refrigerator-isolated-on-transparent-background-free-png.png">
+        <button type="submit">Add to Cart</button>
+      </form>
+      <form action="{{ url_for('buy') }}" method="POST">
+        <input type="hidden" name="product_name" value="Fridge">
+        <input type="hidden" name="price" value="18000">
+        <input type="hidden" name="image_url" value="https://static.vecteezy.com/system/resources/thumbnails/038/015/873/small/ai-generated-refrigerator-isolated-on-transparent-background-free-png.png">
+        <button type="submit">Buy</button>
+      </form>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card">
+      <img src="https://img.freepik.com/free-psd/modern-tv-screen-isolated_23-2151430324.jpg?ga=GA1.1.354160194.1749965615&semt=ais_hybrid&w=740" alt="TV">
+      <h3>TV</h3>
+      <p>Rs. 20000</p>
+      <form action="{{ url_for('add_to_cart') }}" method="POST">
+        <input type="hidden" name="product_name" value="TV">
+        <input type="hidden" name="price" value="20000">
+        <input type="hidden" name="image_url" value="https://img.freepik.com/free-psd/modern-tv-screen-isolated_23-2151430324.jpg?ga=GA1.1.354160194.1749965615&semt=ais_hybrid&w=740">
+        <button type="submit">Add to Cart</button>
+      </form>
+      <form action="{{ url_for('buy') }}" method="POST">
+        <input type="hidden" name="product_name" value="TV">
+        <input type="hidden" name="price" value="20000">
+        <input type="hidden" name="image_url" value="https://img.freepik.com/free-psd/modern-tv-screen-isolated_23-2151430324.jpg?ga=GA1.1.354160194.1749965615&semt=ais_hybrid&w=740">
+        <button type="submit">Buy</button>
+      </form>
+    </div>
+
+  </section>
+
+</body>
+</html>
